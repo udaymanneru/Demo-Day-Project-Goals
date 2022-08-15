@@ -108,6 +108,16 @@ main{
     margin-bottom: 1rem;
 }
 
+@keyframes fadeAndScale {
+    from {
+        opacity: 0;
+        transform: scale3d(.75, .75, 1)
+    }
+    to{
+        opacity: 1;
+        transform: scale3d(1, 1, 1)
+    }
+}
 
 #tasks .task{
     display: flex;
@@ -116,6 +126,8 @@ main{
     padding: 1rem;
     border-radius: 1rem;
     margin-bottom: 1rem;
+    animation: fadeAndScale 0.5s cubic-bezier(0, 1.07, 0.72, 1.42);
+    transform-origin: center bottom;
 }
 
 @media(max-width: 650px){
@@ -156,28 +168,17 @@ main{
 
 .task .actions button{
     cursor: pointer;
-    /* margin: 0 0.25rem;
-    font-size: 1.125rem;
-    font-weight: 700;
-    text-transform: uppercase; */
     transition: 2s;
 
 }
 
-.task .actions button:hover, .task .actions input:hover{
+.task .actions button:hover{
     opacity: 0.8;
 }
 
-.task .actions button:active,.task .actions input:active{
+.task .actions button:active{
     opacity: 0.6;
 }
-
-/* .task .actions .edit{
-    background-image: linear-gradient(to right, var(--yellow), var(--orange));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-} */
-
 
 .task .actions .delete{
     color: crimson;
@@ -198,6 +199,9 @@ main{
 #calendar{
     background: var(--light);
     margin-top: 0.75rem;
+    height: 30px;
+    padding: 7px;
+    border-radius: 10px;
 }
 
 #datecontainer{
